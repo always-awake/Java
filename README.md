@@ -20,7 +20,7 @@ Java 문법 공부하기
 * JRE: Java로 만들어진 프로그래밍이 실행되기 위해 필요함 
 
 ## Java 프로그래밍의 실행 구조
-* java 소스 작성부터 프로그램 실행까지의 순서
+* java 소스 작성부터 프로그램 실행까지의 순서(중요)
 <img src="./images/1.png" />
 
 * 가비지 컬렉터(Garbage Collector)
@@ -34,5 +34,4 @@ Java 문법 공부하기
 
 #
 ### 필기 출처
-* 인프런 강좌
- - https://www.inflearn.com/course/%EC%8B%A4%EC%A0%84-%EC%9E%90%EB%B0%94_java-renew/dashboard
+* [인프런 강좌](https://www.inflearn.com/course/%EC%8B%A4%EC%A0%84-%EC%9E%90%EB%B0%94_java-renew/dashboard)
