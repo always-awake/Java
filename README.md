@@ -35,6 +35,66 @@ Java 문법 공부하기
 ### 변수란?
 * 데이터(자료)를 임시로 담을 수 있는 메모리 공간
 
+## 자료형 
+* 기본 자료형은 데이터가 변수에 직접 저장되고, 객체 자료형은 객체 메모리 주소가 변수에 저장된다.
+<img src="./images/2.png" />
+
+* 객체 메모리 주소가 담겨져 있는 변수에 저장되는 데이터의 크기 4byte로 고정되어 있다.
+* 기본 자료형은 정수, 실수, Boolean 등 그 종류에 따라 변수에 저장되는 데이터의 크기가 달라진다.
+
+### Java 기본 자료형
+* 기본 자료형은 모두 소문자로 표시 
+* 정수형
+    - byte
+    - **char**
+        + ex) a, b, c ...
+        + 문자들을 아스키코드(특정 숫자)로 대체
+    - short
+    - **int**
+    - long
+* 실수형
+    - float
+    - **double**
+* 논리
+    - **boolean**
+    
+<img src="./images/3.png" />
+    
+    
+### Java 객체 자료형
+* 객체 자료형은 제일 앞 글지를 대문자료 표시
+* 문자형
+    - String
+        + ex) String str = "ABCD";
+
+### 형 변환
+* 자동적 형 변환: 작은 공간의 메모리에서 큰 공간의 메모리로 이동
+    - 큰 문제 없이 변환됨 
+```
+byte by = 10;
+int in = by;
+System.out.printIn("in = " + i);
+
+in = 10
+```
+* 명시적 형 변환: 큰 공간의 메모리에서 작은 공간의 메모리로 이동
+    - 명시적 형 변환은 데이터가 누실될 수 있다. 
+```
+int iVar = 100; 
+byte bVar = (byte)iVar;
+System.out.println("bVar = " + bVar);
+
+bVar = 100
+----------------------------------
+iVar = 123456;
+bVar = (byte)iVar;
+System.out.printLn("bVar = " + bVar)
+
+bVar = 64
+```
+
+
+
 #
 ### 필기 출처
 * [인프런 강좌](https://www.inflearn.com/course/%EC%8B%A4%EC%A0%84-%EC%9E%90%EB%B0%94_java-renew/dashboard)
