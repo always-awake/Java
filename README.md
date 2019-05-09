@@ -173,6 +173,7 @@ bVar = 64
 <img src="./images/6.png" width="50%" height="50%" />
 
 ### 비트 연산자
+* java 에서는 자주 사용되지 않
 * 데이터를 비트(bit)단위로 환산하여 연산을 수행하며, 다른 연산자보다 연산 속도가 빠르다. 
 * &: AND 연산
     - a & b: a와 b가 모두 1이면 1
@@ -181,6 +182,119 @@ bVar = 64
 * ^: XOR 연산
     - a^b: a와 b가 같지 않으면 1
 <img src="./images/7.png" width="75%" height="75%" />   
+
+## 배열
+* 다수의 데이터를 인덱스를 이용해서 관리하는 방법 
+
+### 배열이란?
+* 인덱스를 이용해서 **자료형이 같은 데이터**를 관리하는 것이다.
+* 배열 선언 및 초기화: 배열도 변수와 마찬가지로 선언과 초기화 과정을 거쳐 사용한다.
+    - 배열 선언 후 초기화
+    - 배열 선언과 초기화를 동시에 
+* 배열은 주로 많은 데이터를 쉽게(효율적) 관리하기 위해서 사용한다.
+
+## 배열과 메모리
+* 배열을 구성하는 데이터의 자료형에 따라서 배열의 메모리 크기가 결정된다.
+* 기본 자료형 데이터를 담고 있는 변수와 달리 배열 변수는 배열 데이터의 주소를 담고 있다. 
+<img src="./images/8.png" width="80%" height="80%" />   
+
+* int[] i 에서 i에는 배열의 첫번째 인덱스의 시작주소가 저장되어 있다. 
+
+### 배열의 기본 속성
+* 배열 길이
+```
+int[] arrAtt1 = {10, 20, 30, 40, 50, 60}
+System.out.println(arrAtt1.length)
+```
+
+* 배열 요소 출력
+```
+System.out.println(Arrays.toString(arrAtt1));
+```
+* 배열 요소 복사
+```
+arratt2 = Arrays.copyOf(arrAtt1.length); 
+```
+* 배열 레퍼런스
+```
+arrAtt3 = arrAtt1;
+System.out.println(arrAtt1);
+System.out.println(arrAtt2);
+System.out.println(arrAtt3);
+----------------------------
+I@455617c
+I@74a14482
+I@455617c
+```
+
+### 다차원 배열
+* 배열 안에 또 다른 배열이 존재한다.
+* 이차원 배열 ~ n차열 배열
+    - 이차원 배열까지는 자주 사용되지만, 3차원 배열부터는 메모리 사용량 급증으로 인한 성능 저하때문에 자주 사용되지 않는다.
+```
+int[][] arrMul = new int[3][2];
+arrMul[0][0] = 10;
+arrMul[0][1] = 100;
+```
+
+## 조건문
+* 프로그램이 조건의 결과에 따라 양자 택일 또는 다자 택일을 진행하는 조건문
+
+### 조건문이란?
+* 조건의 결과에 따라서 양자 택일 또는 다자 택일을 진행한다.
+    - 양자 택일: 주로 if문이 사용된다.
+    - 다자 택일: 주로 switch문이 사용된다.
+* if 문
+    - if문
+    - if문 + else문
+    - if문 + else if 문
+    - if문 + else if 문 ... + else문 등 조합은 다양함 
+* switch 문
+    - 비교대상이 되는 결과값과 선택사항이 많을 경우 주로 사용한다.
+```
+System.out.println("점수를 입력하세요.: ");
+Scanner inputNum = new Scanner(System.in);
+int sore = inputNume.nextInt();
+
+switch (score) {
+case 100:
+case 90:
+System.out.println("수");
+break;
+
+default:
+System.out.println("다시 시도");
+break;
+}
+
+inputNum.close();
+```
+
+## 반복문
+* 프로그램 진행을 특정 조건에 따라 반복적으로 진행하는 것
+* for문
+    - for(초기값, 조건식, 증가되는 코드)
+```
+for(inti=1; i<10; '반복문이 끝나고 실행할 코드')
+```
+* while문
+    - while(조건식) -> 초기값, 증가되는 코드는 while 외부에 존재
+```
+i = 0
+while(i<10) {
+    ...
+    i++;
+}
+```
+
+* do ~ while문
+    - while문과 비슷하며, 차이점은 조건 결과에 상관없이 무조건 최초 한번은 ~ 위치에 해당하는 프로그램을 수행한다.
+```
+do {
+    System.out.println("무조건 한번은 실행됩니다!");
+} while(false);
+```
+
 
 
 
