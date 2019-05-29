@@ -428,6 +428,7 @@ Grandeur myCar2 = new Grandeur();
 
 ## 메서드 오버라이드(override)
 * 부모 클래스의 기능을 자식 클래스에서 재정의해서 사용한다.
+* **@Override** 어노테이션 사용
 
 ```
 public class ParentClass {
@@ -484,12 +485,158 @@ childs[1] = sch;
 
 <img src="./images/15.png" />
 
-## super 클래스
+### super 클래스
 * 상위 클래스를 호출할 때 super키워드를 이용한다.
 
 <img src="./images/16.png" />
+
+## 내부 클래스와 익명 클래스
+* 클래스 안에 또다른 클래스를 선언하는 방법과 이름이 없는 클래스를 선언하는 방법
+
+### 내부(inner) 클래스
+* 클래스 안에 또다른 클래스를 선언하는 것으로 이러한 방식을 통해 두 클래스의 멤버에 쉽게 접근할 수 있다. 
+* 단점
+    - 객체 내에 또다른 객체가 존재하는 것은 객체 지향 프로그래밍 패러다임과 맞지 않다.
+    - 로직이 복잡해질 수 있다.
+* 실무에서 많이 사용되지 않는 코딩 방식이다.
+
+<img src="./images/17.png" />
+   
+### 익명(anonymous) 클래스
+* 이름이 없는 클래스로 주로 매서드를 재정의(override)하는 목적으로 사용된다. 
+* 익명 클래스는 인터페이스나 추상클래스에서 주로 이용된다. 
+* 익명 클래스의 객체는 한번 사용되고, 버려진다. 
+* 익명 클래스의 객체를 생성하고, 바로 도트 접근자를 이용해 해당 객체의 필요한 메소드를 사용한다. 
+
+<img src="./images/18.png" />
+
+## 인터페이스
+* 객체가 다양한 데이터 타입을 가질 수 있는 방법(인터페이스 기능의 일부)
+ 
+### 인터페이스란? 
+* 클래스와 달리 객체를 생성할 수 없으며, 클래스에서 구현해야 하는 작업 명세서이다.
+* 인터페이스 내 함수는 선언부만 존재한다.
+    - 정의부는 없다.
+    - 이 함수는 인터페이스를 구현하는 클래스에서 해당 함수를 정의를 새롭게 하여 사용한다.
+<img src="./images/19.png" />
+
+* 인터페이스 구현: class대신 interface 키워드를 사용하며, extend 대신 implements 키워드를 이용한다. 
+<img src="./images/20.png" />
+
+* 인터페이스를 사용하는 이유
+    - 인터페이스를 사용하는 이유는 많지만, 가장 큰 이유는 객체가 다양한 자료형(타입)을 가질 수 있기 때문이다.
+
+```
+public interface InterfaceA {
+    public void funA();
+}
+
+public interfate InterfaceB {
+    public void funB();
+}
+```    
+
+* 인터페이스는 **다형성**을 지원한다.(객체가 사용할 수 있는 자료형이 확장된다.)
+    - 클래스가 구현하는(implements) 인터페이스의 모든 메서드는 클래스에서 재정의(override)해주어야 한다.
+ 
+```
+public class Interfaceclass implements InterfaceA, InterfaceB {
+    
+    public Interfaceclass() {
+        System.out.println("-- Interfaceclass constructor --")
+    }
+    
+    @Override
+    public void funA() {
+        System.out.println("-- funA() --");
+    }
+    
+    @Override
+    public void funB() {
+        System.out.println("-- funB() --");
+    }
+}
+
+
+InterfaceA ia = new Interfaceclass();
+InterfaceB ib = new Interfaceclass();
+
+ia.funA();
+ib.funB();
+
+ia.funB(); // 오류 발생 
+```
+<img src="./images/21.png" />
+
+### 인터페이스 예제
+<img src="./images/22.png" />
+
+```
+// Toy 인터페이스
+public interface Toy {
+
+    public void walk();
+    public void run();
+    public void alarm();
+    public void light();
+}
+
+//Toy 인터페이스를 구현한 ToyAirplne 클래스
+public ToyAirplne implements Toy {
+
+    @Override
+    public void walk() {
+    ...
+    }
+    
+    @Override
+    public void run() {
+    ...
+    }
+    
+    @Override
+    public void alarm() {
+    ...
+    }
+    
+    @Override
+    public void light() {
+    ...
+    }
+}
+
+// Main 클래스
+public static void main(String[] args) {
+    
+    Toy robot = new ToyRobot();
+    Toy airplce = new ToyAirplne();
+    
+    Toy toys[] = {robot, airplane}; 
+    
+    for (int i = 0; i < toys.length; i++) {
+        toys[i].walk();
+        toys[i].run();
+        toys[i].alarm();
+        toys[i].light();
+    }
+}
+```
+
+
+
+
+
+
+
+
 
 
 #
 ### 필기 출처
 * [인프런 강좌](https://www.inflearn.com/course/%EC%8B%A4%EC%A0%84-%EC%9E%90%EB%B0%94_java-renew/dashboard)
+
+
+
+
+
+
