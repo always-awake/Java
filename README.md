@@ -407,12 +407,87 @@ Grandeur myCar2 = new Grandeur();
 * 멤버 변수를 외부에서 변경할 수 있도록 하는 메서드
 
 
+## 상속
+* 기존에 만들어진 클래스의 기능을 상속받아서 새로운 클래스를 쉽게 만들 수 있는 방법에 대해서 학습
+
+### 상속이란?
+* 부모 클래스를 상속받은 자식 클래스는 부모 클래스의 속성과 기능도 이용할 수 있다.
+* 자식 클래스의 객체를 생성할 때, 부모 클래스의 객체가 먼저 생성된다.
+    - 먼저 생성된(메모리에 로딩된) 부모 클래스의 객체를 상속받아 자식 클래스의 객체가 생성됨
+* java 언어에서는 **단일 상속**만을 지원한다.
+    - 한 클래스는 하나의 클래스만을 상속받을 수 있다. 
+
+### 상속의 필요성
+* 기존의 검증된 class를 이용해서 빠르고 쉽게 새로운 class를 만들 수 있다. 
+
+### 부모 클래스의 private 접근자
+* 자식 클래스는 부모 클래스의 모든 자원을 사용할 수 있지만, private 접근자의 속성과 메서드는 사용할 수 없다.
+
+## 상속 특징
+* 상속관계에 있는 클래스의 특징
+
+## 메서드 오버라이드(override)
+* 부모 클래스의 기능을 자식 클래스에서 재정의해서 사용한다.
+
+```
+public class ParentClass {
+    public ParentClass() {
+        System.out.println("ParentClass constructor");
+    }
+    
+    public firstfunc() {
+        System.out.println("Parent first func");
+    }
+}
 
 
+public class FirstChildClass extends ParentClass {
+     
+     @Override
+     public firstfunc() {
+         System.out.println("FirstChild first func");
+     }
+ }
+ 
+public class SecondChildClass extends ParentClass {
+     
+     @Override
+     public firstfunc() {
+         System.out.println("SecondChild first func");
+     }
+ }
+```
 
+### 자료형(타입)
+* 클래스도 자료형이다.
+```
+ParentClass childs[] = new ParentClass[2];
+childs[0] = new FirstChildClass();
+childs[1] = new SecondChildClass();
+```
+* 배열에는 같은 자료형의 데이터가 입력되어야 하기에 ParentClass 자료형의 childs 배열을 만들어준다.
 
+```
+ParentClass childs[] = new ParentClass[2];
+ParentClass fch = new FirstChildClass();
+ParentClass sch = new SecondChildClass();
 
+childs[0] = fch;
+childs[1] = sch;
+```
+* FirstChildClass 객체와 SecondChildClass 객체를 생성할 때 ParentClass 자료형으로 통일이 가능하다.
+    - 두 클래스 모두 ParentClass를 상속받고 있는 객체이기 때문이다.
 
+### Object 클래스
+* 모든 클래스의 최상위 클래스는 Object이다.
+* 모든 클래스의 데이터타입을 Object로 통일시킬 수 있다.
+
+<img src="./images/15.png" />
+
+## super 클래스
+* 상위 클래스를 호출할 때 super키워드를 이용한다.
+
+<img src="./images/16.png" />
 
 
 #
