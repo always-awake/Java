@@ -674,8 +674,94 @@ mybank.getInfo();
         + 추상 메서드 구현 및 상속의 기능을 가진다.
         + 단일 상속만 지원한다. (extends 키워드 사용)
         
-        
+## 람다식
+* 기존의 객체 지향이 아닌 함수 지향으로 프로그래밍 하는 방법
 
+### 람다식이란?
+* 익명함수(anonymous function)을 이용해서 익명 객체를 생성하기 위한 식이다.
+* 간단한 구현임에도 객체를 생성해야하는 번거로움이 있을때의 대안(객체를 생성할 필요 없음)
+
+### 람다식 특징
+* 접근자, 반환형, return 키워드 생략 
+* 구성요소
+    - 매개변수
+    - 실행문: 전달된 매개변수를 갖고 수행할 작업
+* 람다식을 이용해 변수를 생성한다면 **도트 접근자**로 해당 변수를 언제든지 사용할 수 있다. 
+
+```
+// LambdaInterface1 인터페이스
+public interface LambdaInterface1 {
+    public void method(String s1, String s2, String s3);
+}
+
+// MainClass
+LambdaInterface1 li1 = (String s1, String s2, String S3) -> {System.out.println(s1 + " " + s2 + " " + s3);};
+li1.method("Hello", "java", "World");
+```
+
+* 매개변수가 1개이거나 타입이 같을 경우에는 타입을 생략할 수 있다.
+```
+// LambdaInterface2 인터페이스
+public interface LambdaInterface2 {
+    public void method(String s1);
+}
+
+// MainClass
+LambdaInterface2 li2 = (s1) -> {System.out.println(s1);};
+li2.method("Hello");
+```
+
+* 실행문이 1개일 때 '{}'를 생략할 수 있다.
+```
+// MainClass
+LambdaInterface2 li3 = (s1) -> System.out.println(s1);
+li3.method("Hello");
+```
+
+* 매개변수와 실행문이 1개일 때, '()'와 '{}'를 생략할 수 있다.
+```
+// MainClass
+LambdaInterface2 li4 = s1 -> System.out.println(s1);
+li4.method("Hello");
+```
+
+* 매개 변수가 없을 때 '()'만 작성한다.
+```
+// LambdaInterface3 인터페이스
+public interface LambdaInterface3 {
+    public void method();
+}
+
+// MainClass
+LambdaInterface3 li5 = () -> System.out.println("no parameter");
+li5.method();
+```
+
+* 반환값이 있는 경우
+```
+// LambdaInterface4 인터페이스
+public interface LambdaInterface4 {
+    public int method(int x, int y);
+}
+
+// 람다
+LambdaInterface4 li6 = (x, y) -> {
+    int result = x * y;
+    return result;
+};
+System.out.printf("li6.mehod(10, 20) : %d\n", li6.method(10, 20));
+
+// 람다 수정
+li6 = (x, y) -> {
+    int result = x - y;
+    return result;
+};
+System.out.printf("li6.mehod(10, 20) : %d\n", li6.method(10, 20));
+```
+
+* 람다식 구현
+    - 람다식은 기본적으로 함수를 만들어 사용한다고 생각하면 된다.
+    
 
 #
 ### 필기 출처
